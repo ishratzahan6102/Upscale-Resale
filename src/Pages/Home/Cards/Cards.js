@@ -15,7 +15,7 @@ const Cards = () => {
 
 
     return (
-        <div className='my-20'>
+        <div className='my-20 justify-center'>
             <small>Have a look on our</small>
             <h1 className='text-4xl  font-bold text-white mb-10 '>Categories</h1>
             <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-20' >

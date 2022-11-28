@@ -19,17 +19,14 @@ const DashboardLayout = () => {
             <Navbar></Navbar>
            <div className='text-end'>
            <ul className="menu menu-horizontal bg-neutral text-neutral-content mb-2">
-                {
-                    isBuyer && 
-                    <li><Link to='/dashboard'>My Orders</Link></li>
-
-                }
+                
                 {
                     isAdmin && 
                     <>
-                    <li><Link to='/dashboard/users'>All Users</Link></li>
-                       <li><Link to='/dashboard/wishList'>Reported Items</Link></li>
-                    <li><Link to='/dashboard/mySellers'>My Sellers</Link></li>
+                    <li><Link to='/dashboard/users'>All Users</Link></li>  
+                    <li><Link to='/dashboard/mySellers'>All Sellers</Link></li>
+                    <li><Link to='/dashboard/myBuyers'>All Buyers</Link></li>
+                    <li><Link to='/dashboard/wishList'>Reported Items</Link></li>
                     </>
                 }
                 {
@@ -40,7 +37,11 @@ const DashboardLayout = () => {
                     </>
                 }
                 
-            
+                {
+                    isBuyer && 
+                    <li><Link to='/dashboard'>My Orders</Link></li>
+
+                }
             </ul>
 
 

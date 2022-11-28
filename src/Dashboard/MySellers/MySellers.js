@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Pages/Contexts/Context";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
+import tik from '../../assets/Phones/Tic.png'
 
 
 
@@ -63,7 +64,7 @@ const MySellers = () => {
     return (
         <div className="my-10 mb-60 text-start">
             <h1 className='text-4xl  font-bold  text-white my-10'>All Sellers</h1>
-            <div className="overflow-x-auto text-gray-300">
+            <div className="overflow-x-auto text-center text-gray-300">
                 <table className="table text-center w-full">
                     <thead className=''>
                         <tr>
@@ -83,13 +84,32 @@ const MySellers = () => {
                             sellers?.map((seller, i) => 
                             <tr key={seller._id}>
                             <td>{i+1}</td>
-                            <td>{seller.name}</td>
+                            <td className="text-start">{
+                            seller?.verify=== "verified" &&
+                            <>
+                            <div className="avatar">
+                                <div className="w-4">
+                                <img src={tik} />
+                                </div>
+                            </div>
+                            </>
+                            
+                            } {seller.name}</td>
                             <td>{seller.email}</td>
                             <td>{seller.account}</td>
                             {/* <td>{seller?.role !== "admin" && <button onClick={() => handleMakeAdmin(seller._id)}  className='btn btn-xs btn-success'>Make Admin</button>}</td> */}
 
-                            <td>{seller?.verify !== "verified" && <button onClick={() => handleVerify(seller._id)}  className='btn btn-xs btn-success'>Verify</button>}</td>
+                            
                            
+
+                            <td>
+                                            {seller?.verify !== "verified" && <button onClick={() => handleVerify(seller._id)}  className='btn btn-xs btn-success'>Unverified</button>}
+                                        
+                                        
+                                        
+                                         {seller?.verify === "verified" && <button   className='btn btn-xs btn-success'>Verified</button>}
+                                        
+                                        </td>
                            
                             <td>
                                  <label onClick={() => setDeletingDoctor(seller)} htmlFor="confirmation-modal" className="btn btn-xs btn-error">Delete</label>

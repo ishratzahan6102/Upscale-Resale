@@ -14,7 +14,7 @@ const Navbar = () => {
 
     const menu = <>
         <Link className="m-2 rounded-none" active to='/'>Home</Link>
-        <Link className="m-2  rounded-none" to='/journals'>Journals</Link>
+        <Link className="m-2  rounded-none" to='/journals'>Blogs</Link>
         {
         user?.uid?
         <>

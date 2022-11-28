@@ -11,8 +11,8 @@ const Card = ({card}) => {
 
     return (
         <div className='text-center'>
-            <div className="card w-72 py-2 text-center bg-white text-black shadow-xl">
-            <figure><img className='h-60 w-60' src={img} alt="Shoes" /></figure>
+            <div className="w-72 mx-auto py-2 text-center bg-white text-black shadow-xl">
+            <figure><img className='h-60 mx-auto w-60' src={img} alt="Shoes" /></figure>
         
                
               

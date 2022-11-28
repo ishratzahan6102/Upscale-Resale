@@ -18,6 +18,8 @@ import AdminRoute from "./AdminRoute/AdminRoute";
 import SellerRoute from "./SellerRoute/SellerRoute";
 import WishList from "../Dashboard/WishList/WishList";
 import PrivateRoute from "./PrivateRoute";
+import BuyerRoute from "./BuyerRoute/BuyerRoute";
+import Dashboard from "../Dashboard/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -61,7 +63,11 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard/',
-                element: <MyOrders></MyOrders>
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard',
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
             },
             {
                 path: '/dashboard/users',
@@ -69,11 +75,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/mySellers',
-                element: <MySellers></MySellers>,
+                element: <AdminRoute><MySellers></MySellers></AdminRoute>,
             },
             {
                 path: '/dashboard/myBuyers',
-                element:  <SellerRoute><MyBuyers></MyBuyers></SellerRoute>,
+                element:  <AdminRoute><MyBuyers></MyBuyers></AdminRoute>
             },
             {
                 path: '/dashboard/wishList',
@@ -81,7 +87,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/postedItems',
-                element: <PostedItems></PostedItems>,
+                element: <SellerRoute><PostedItems></PostedItems></SellerRoute>,
             },
             {
                 path: '/dashboard/addAnItem',
