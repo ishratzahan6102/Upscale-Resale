@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAIxZEXHl4533oy1kzs0Va6VzGN2_sRTMs",
-  authDomain: "phone-resell-center.firebaseapp.com",
-  projectId: "phone-resell-center",
-  storageBucket: "phone-resell-center.appspot.com",
-  messagingSenderId: "641010347833",
-  appId: "1:641010347833:web:8a95978d00e6d9bdab02e8",
-  measurementId: "G-K5MJTVT7EE"
+  apiKey : process.env.REACT_APP_apiKey,
+  authDomain :  process.env.REACT_APP_authDomain,
+  projectId :  process.env.REACT_APP_projectId,
+  storageBucket :  process.env.REACT_APP_storageBucket,
+  messagingSenderId :  process.env.REACT_APP_messagingSenderId,
+  appId :  process.env.REACT_APP_appId,
+  measurementId :  process.env.REACT_APP_measurementId,
 };
 
 // Initialize Firebase
