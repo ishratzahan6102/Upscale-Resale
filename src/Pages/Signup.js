@@ -86,7 +86,7 @@ const Signup = () => {
     return (
         <div className='h-[800px] flex justify-center items-center'>
         <div className='w-96 p-7'>
-             <h2 className='text-xl font-bold'>Sign up</h2>
+             <h2 className='text-4xl text-white font-bold'>Sign up</h2>
              <form onSubmit={handleSubmit(handleSignup)}>
 
           <div className="form-control w-full max-w-xs">
@@ -132,19 +132,11 @@ const Signup = () => {
              </label>
           </div>
         
-
-        
-
-
-
-
-
-
          {/* <p>{data}</p> */}
-         <input className='btn btn-neutral w-full' value='submit' type="submit" />
+         <input className='btn btn-primary text-white w-full' value='submit' type="submit" />
          {signUpError && <p className='text-error'>{signUpError}</p>}
          <Toaster />
-         <p>Already have an account?<Link  className='text-secondary font-bold' to='/login'> Login</Link></p>
+         <p>Already have an account?<Link  className='text-white font-bold' to='/login'> Login!</Link></p>
          <div className='divider'>OR</div>
          <input className='btn btn-outline w-full' value='Continue with Goggle'  />
          </form>

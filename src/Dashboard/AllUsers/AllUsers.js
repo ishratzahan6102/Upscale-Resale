@@ -16,15 +16,15 @@ const AllUsers = () => {
     })
 
     const {user} = useContext(AuthContext)
-    const [deletingDoctor, setDeletingDoctor] = useState(null)
+    const [deletingUsers, setDeletingUsers] = useState(null)
 
 
     const closeModal = () => {
-        setDeletingDoctor(null)
+        setDeletingUsers(null)
     }
-    const handleDeleteDoctor = (item) => {
-      console.log(item)
-      fetch(`http://localhost:5000/addItems/${item._id}`, {
+    const handleDeleteUser = (user) => {
+      console.log(user)
+      fetch(`http://localhost:5000/users/${user._id}`, {
           method : "DELETE",
           headers : {
               authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -100,7 +100,7 @@ const AllUsers = () => {
                             </td>
                             <td>{
                                 user?.role !== "admin" && 
-                                <label  onClick={() => setDeletingDoctor(users)} htmlFor="confirmation-modal" className="btn btn-xs btn-error">Delete</label>
+                                <label  onClick={() => setDeletingUsers(user)} htmlFor="confirmation-modal" className="btn btn-xs btn-error">Delete</label>
                                 }
                                 {
                                 user?.role === "admin" && 
@@ -117,13 +117,13 @@ const AllUsers = () => {
                 </table>
             </div>
             {
-                deletingDoctor && <ConfirmationModal
+                deletingUsers && <ConfirmationModal
                 title={`Are you sure tou want to delete this?`}
-                message={`If you delete ${deletingDoctor.name} it can not be undone.`}
+                message={`If you delete ${deletingUsers.name} it can not be undone.`}
                 closeModal={closeModal}
                 successButtonName="Delete"
-                successAction={handleDeleteDoctor}
-                modalData={deletingDoctor}
+                successAction={handleDeleteUser}
+                modalData={deletingUsers}
                 ></ConfirmationModal>
             }
         </div>

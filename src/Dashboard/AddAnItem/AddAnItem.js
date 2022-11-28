@@ -6,7 +6,7 @@ import { AuthContext } from "../../Pages/Contexts/Context";
 
 
 const AddAnItem = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const { register, formState: { errors }, handleSubmit } = useForm()
     const imgbbKey = process.env.REACT_APP_imgbb_key
     console.log(imgbbKey)
@@ -69,115 +69,113 @@ const AddAnItem = () => {
     //     return <Loading></Loading>
     // }
     return (
-        <div className='w-96 p-7 text-start my-20 mb-60 '>
-            <h1 className='text-3xl font-bold'>Add an Item</h1>
-            <form onSubmit={handleSubmit(handleAddDoctor)}>
-
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Product Name</span>
-                    </label>
-                    <input type='text' className='input input-bordered' {...register("name", { required: "Name is required" })} />
-                    {errors.name && <p className='text-error'>{errors.name?.message}</p>}
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Email</span>
-                    </label>
-                    <input type='text' className='input input-bordered' defaultValue={user?.email} disabled {...register("email", )} />
-                    {errors.email && <p className='text-error'>{errors.email?.message}</p>}
-                </div>
-
-
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Price</span>
-                    </label>
-                    <input type='text' className='input input-bordered' {...register("price", { required: "Name is required" })} />
-                    {errors.name && <p className='text-error'>{errors.name?.message}</p>}
-                </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Phone Number</span>
-                    </label>
-                    <input type='text' className='input input-bordered' {...register("phoneNumber", { required: "Name is required" })} />
-                    {errors.name && <p className='text-error'>{errors.name?.message}</p>}
-                </div>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Location</span>
-                    </label>
-                    <input type='text' className='input input-bordered' {...register("location", { required: "Name is required" })} />
-                    {errors.name && <p className='text-error'>{errors.name?.message}</p>}
-                </div>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Description</span>
-                    </label>
-                    <input type='text' className='input input-bordered' {...register("description", { required: "Name is required" })} />
-                    {errors.name && <p className='text-error'>{errors.name?.message}</p>}
-                </div>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Year of purchase</span>
-                    </label>
-                    <input type='text' className='input input-bordered' {...register("year", { required: "Name is required" })} />
-                    {errors.name && <p className='text-error'>{errors.name?.message}</p>}
-                </div>
-
+        <div>
+            
                 
+                    <div className='w-96 p-7 text-start my-20 mb-60 '>
+                <h1 className='text-3xl font-bold'>Add an Item</h1>
+                <form onSubmit={handleSubmit(handleAddDoctor)}>
 
-
-                <div className="form-control w-full max-w-xs pb-6">
-
-                
-                    <div className="form-control w-full max-w-xs my-4">
-                    <label className="label">
-                        <span className="label-text">Category</span>
-                    </label>
-                        <select className='w-full' {...register("category")}>
-                            <option value="Nokia">Nokia</option>
-                            <option value="LG">Lg</option>
-                            <option value="Iphone">Iphone</option>
-                        </select>
-
+                    <div className="form-control w-full max-w-xs">
+                        
+                        <input type='text' placeholder="Product Name" className='input input-bordered' {...register("name", { required: "Name is required" })} />
+                        {errors.name && <p className='text-error'>{errors.name?.message}</p>}
                     </div>
 
-
-                    
-                    <div className="form-control w-full max-w-xs my-4">
-                    <label className="label">
-                        <span className="label-text">Product Condition</span>
-                    </label>
-                        <select className='w-full' {...register("condition")}>
-                            <option value="buyer">excellent</option>
-                            <option value="buyer">good</option>
-                            <option value="seller">fair</option>
-                        </select>
-
+                    <div className="form-control w-full max-w-xs">
+                        
+                        <input type='text' placeholder="Email"  className='input input-bordered' defaultValue={user?.email} readOnly {...register("email",)} />
+                        {errors.email && <p className='text-error'>{errors.email?.message}</p>}
                     </div>
 
 
                     <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Image</span>
-                        </label>
-                        <input type='file' className='input input-bordered py-2' {...register("img", { required: "Photo is required" })} />
-                        {errors.img && <p className='text-error'>{errors.img?.message}</p>}
+                        
+                        <input type='text' placeholder="Price" className='input input-bordered' {...register("price", { required: "Name is required" })} />
+                        {errors.name && <p className='text-error'>{errors.name?.message}</p>}
+                    </div>
+
+                    <div className="form-control w-full max-w-xs">
+                       
+                        <input type='text' placeholder="Phone Number" className='input input-bordered' {...register("phoneNumber", { required: "Name is required" })} />
+                        {errors.name && <p className='text-error'>{errors.name?.message}</p>}
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                       
+                        <input placeholder="Location" type='text' className='input input-bordered' {...register("location", { required: "Name is required" })} />
+                        {errors.name && <p className='text-error'>{errors.name?.message}</p>}
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                       
+                        <input type='text' placeholder="Description" className='input input-bordered' {...register("description", { required: "Name is required" })} />
+                        {errors.name && <p className='text-error'>{errors.name?.message}</p>}
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        
+                        <input placeholder="Year of purchase"  type='text' className='input input-bordered' {...register("year", { required: "Name is required" })} />
+                        {errors.name && <p className='text-error'>{errors.name?.message}</p>}
                     </div>
 
 
-                </div>
 
 
-                <input className='btn btn-primary w-full' value='Add Doctor' type="submit" />
-                {/* {signUpError && <p className='text-error'>{signUpError}</p>} */}
-                <Toaster />
-            </form>
+                    <div className="form-control w-full max-w-xs pb-6">
 
-        </div>
+
+                        <div className="form-control w-full max-w-xs my-1">
+                            <label className="label">
+                                <span className="label-text">Category</span>
+                            </label>
+                            <select className='w-full' {...register("category")}>
+                                <option value="Nokia">Nokia</option>
+                                <option value="LG">Lg</option>
+                                <option value="Iphone">Iphone</option>
+                            </select>
+
+                        </div>
+
+
+
+                        <div className="form-control w-full max-w-xs my-1">
+                            <label className="label">
+                                <span className="label-text">Product Condition</span>
+                            </label>
+                            <select className='w-full' {...register("condition")}>
+                                <option value="buyer">excellent</option>
+                                <option value="buyer">good</option>
+                                <option value="seller">fair</option>
+                            </select>
+
+                        </div>
+
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Image</span>
+                            </label>
+                            <input type='file' className='input input-bordered py-2' {...register("img", { required: "Photo is required" })} />
+                            {errors.img && <p className='text-error'>{errors.img?.message}</p>}
+                        </div>
+
+
+                    </div>
+
+
+                    <input className='btn btn-primary w-full' value='Add To Resale' type="submit" />
+                    {/* {signUpError && <p className='text-error'>{signUpError}</p>} */}
+                    <Toaster />
+                </form>
+
+            </div>
+                    </div>
+              
+           
+
+
+
+
+           
+       
     );
 };
 

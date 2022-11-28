@@ -53,7 +53,7 @@ const Login = () => {
     return (
         <div className='h-[800px] flex justify-center items-center'>
                <div className='w-96 p-7'>
-                    <h2 className='text-xl'>Login</h2>
+                    <h2 className='text-4xl text-white font-bold '>Login!</h2>
                     <form onSubmit={handleSubmit(handleLogin)}>
 
                  <div className="form-control w-full max-w-xs">
@@ -76,9 +76,9 @@ const Login = () => {
                 </div>
                 
                 {/* <p>{data}</p> */}
-                <input className='btn btn-neutral w-full' value='submit' type="submit" />
+                <input className='btn btn-primary text-white w-full' value='submit' type="submit" />
                 {loginError && <p className='text-errors'>{loginError}</p>}
-                <p>New to doctors portal?<Link  className='text-secondary font-bold' to='/signup'> Create new account</Link></p>
+                <p>New to Upscale Resale?<Link  className=' font-bold text-white' to='/signup'> Create new account!</Link></p>
                 <div className='divider'>OR</div>
                 <input   className='btn btn-outline w-full'  value='Continue with Goggle'  />
                 </form>
