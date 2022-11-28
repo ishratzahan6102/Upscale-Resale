@@ -1,0 +1,214 @@
+[
+  
+    {
+        "brand": "Nokia",
+        "email": "tom@gmail.com",
+        "img": "https://i.ibb.co/ZGV2YWK/all-phones.jpg",
+        "phones": [
+          {
+     
+            "id": "01",
+            "resale_price": "$150",
+            "original_price": "$1488",
+            "version_name": "Nokia 1",
+            "seller_name": "Tom",
+            "email": "tom@gmail.com",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/QXmpjtd/nokia-1.jpg"
+          },
+          {
+     
+            "id": "02",
+            "resale_price": "$160",
+            "original_price": "$188",
+            "version_name": "Nokia 2",
+            "seller_name": "Rakin Afsar",
+         
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/j4WR3Xr/nokia-2.jpg"
+          },
+          {
+     
+            "id": "03",
+            "resale_price": "$350",
+            "original_price": "$488",
+            "version_name": "Nokia 3",
+            "seller_name": "Tom",
+            "email": "tom@gmail.com",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/WD5719r/nokia-3.jpg"
+          },
+          {
+     
+            "id": "04",
+            "resale_price": "$350",
+            "original_price": "$488",
+            "version_name": "Nokia 3",
+            "seller_name": "Rakin Afsar",
+           
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/WD5719r/nokia-3.jpg"
+          },
+          {
+     
+            "id": "05",
+            "resale_price": "$350",
+            "original_price": "$488",
+            "version_name": "Nokia 3",
+            "seller_name": "Tom",
+            "email": "tom@gmail.com",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/WD5719r/nokia-3.jpg"
+          },
+          {
+     
+            "id": "06",
+            "resale_price": "$350",
+            "original_price": "$488",
+            "version_name": "Nokia 3",
+            "seller_name": "Tom",
+            "email": "tom@gmail.com",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/WD5719r/nokia-3.jpg"
+          }
+          
+
+            ]
+    },
+    {
+        "brand": "LG",
+        "email": "iamfmahmud@gmail.com",
+        "img": "https://www.smartphonesbd.com/images/phones/lg-wing-5g-2022_thumb.jpg",
+        "phones": [
+          {
+     
+            "id": "01",
+            "resale_price": "$230",
+            "original_price": "$238",
+            "version_name": "LG 1",
+            "seller_name": "Faysal Mahmud",
+            "email": "iamfmahmud@gmail.com",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/2ybX8br/lg-1.jpg"
+          },
+          {
+     
+            "id": "02",
+            "resale_price": "$231",
+            "original_price": "$308",
+            "version_name": "LG 2",
+            "seller_name": "Minar Rahman",
+     
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/z8PLdvM/lg-2.jpg"
+          },
+          {
+     
+            "id": "03",
+            "resale_price": "$123",
+            "original_price": "$388",
+            "version_name": "LG 3",
+            "seller_name": "Minar Rahman",
+       
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/TPVbyQ2/lg-3.jpg"
+          }
+          ,
+          {
+     
+            "id": "04",
+            "resale_price": "$123",
+            "original_price": "$388",
+            "version_name": "LG 3",
+     
+            "seller_name": "Minar Rahman",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/TPVbyQ2/lg-3.jpg"
+          }
+          ,
+          {
+     
+            "id": "05",
+            "resale_price": "$123",
+            "original_price": "$388",
+            "version_name": "LG 3",
+            "seller_name": "Minar Rahman",
+            
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/TPVbyQ2/lg-3.jpg"
+          }
+          
+
+            ]
+    },
+    {
+        "brand": "Iphone",
+        "img": "https://img.etimg.com/thumb/msid-91934984,width-650,imgsize-19254,,resizemode-4,quality-100/apple-always-on-mode.jpg",
+        "phones": [
+          {
+     
+            "id": "01",
+            "resale_price": "$321",
+            "original_price": "$488",
+            "version_name": "Iphone 1",
+            "seller_name": "Rakin Afsar",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/t3rZTWm/iphone-1.jpg"
+          },
+          {
+     
+            "id": "02",
+            "resale_price": "$323",
+            "original_price": "$588",
+            "version_name": "Iphone 2",
+            "seller_name": "Rakin Afsar",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/60ryHzm/iphone-2.jpg"
+          },
+          {
+     
+            "id": "03",
+            "resale_price": "$150",
+            "original_price": "$288",
+            "version_name": "Iphone 3",
+            "seller_name": "Rakin Afsar",
+            "location": "Dhaka,Bangladesh",
+            "published_date": "2022-08-24 17:27:34",
+            "years_of_use": "6 month",
+            "picture": "https://i.ibb.co/jzSb8xn/iphone-3.jpg"
+          }
+          
+
+            ]
+    }
+
+]
+    
+    
+
