@@ -17,7 +17,7 @@ const WishList = () => {
         queryKey: ['wishList'],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/wishList`, {
+                const res = await fetch(`https://astor-server-ochre.vercel.app/wishList`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem("accessToken")}`
                     }
@@ -35,7 +35,7 @@ const WishList = () => {
 
     const handleDeleteWish = (wish) => {
         console.log(wish)
-        fetch(`http://localhost:5000/wishList/${wish._id}`, {
+        fetch(`https://astor-server-ochre.vercel.app/wishList/${wish._id}`, {
             method : "DELETE",
             headers : {
                 authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -58,9 +58,9 @@ const WishList = () => {
     }
     
     return (
-        <div className='text-start mb-60 mt-20'>
-            <h1 className='text-4xl  font-bold  text-secondary mt-10'>Admin, {user?.displayName}!</h1>
-            <h1 className='lg:text-3xl sm:text-xl font-bold mb-10'>{wishLists?.length} items reported by the customers.</h1>
+        <div className='my-10 mb-60 text-start px-6'>
+            <h1 className='text-2xl  font-bold  text-black mt-10'>Admin, {user?.displayName}</h1>
+            <h1 className='text-gray-500 text-sm font-bold mb-2'>{wishLists?.length} items reported by the customers.</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 

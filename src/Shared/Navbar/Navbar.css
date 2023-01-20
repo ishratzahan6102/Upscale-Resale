@@ -1,0 +1,17 @@
+.title{
+    border-bottom: 2px solid rgb(20, 19, 19);
+    color: black;
+    font-weight: bold;
+
+}
+
+
+.pages{
+    z-index: 1000;
+    background-color: whitesmoke;
+}
+.dropdown-menu{
+    max-height: 400px;
+    overflow-y: auto;
+}
+

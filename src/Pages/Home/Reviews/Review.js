@@ -35,7 +35,7 @@ const Review = () => {
                     </div>
                 </div>
                 <div className="chat-bubble">S22 ultra
-a beast in hardware but disapointing in software features.</div>
+                    a beast in hardware but disapointing in software features.</div>
             </div>
             <div className="indicator w-5/6 mt-6">
                 <div className="indicator-item indicator-bottom">

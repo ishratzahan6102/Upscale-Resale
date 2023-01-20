@@ -8,7 +8,7 @@ const BookingModal = ({phone, setPhone, refetch, setBooked }) => {
     const {id, resale_price, original_price, version_name, seller_name,location, published_date,years_of_use, picture } = phone
 
     const handleBooking = event => {
-       
+       event.preventDefault()
         const form = event.target ;
         const buyerName = form.name.value ;
         const location = form.address.value ;
@@ -19,15 +19,15 @@ const BookingModal = ({phone, setPhone, refetch, setBooked }) => {
         const booking = {
             buyerName: buyerName,
             itemName: version_name,
-            location,
-            email,
-            phoneNumber,
+            location : location,
+            email : email,
+            phoneNumber : phoneNumber,
             price: resale_price,
             picture: picture
         }
 
         console.log(booking)
-        fetch('http://localhost:5000/bookings' , {
+        fetch('https://astor-server-ochre.vercel.app/bookings' , {
         method: 'POST' ,
         headers: {
             'content-type' : 'application/json'
@@ -54,13 +54,13 @@ const BookingModal = ({phone, setPhone, refetch, setBooked }) => {
     }
 
     return (
-        <div>
+        <div className='text-black'>
                  <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal">
             <div className="modal-box relative">
                 <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                <h3 className="text-3xl text-white text-start  font-bold">Request an order </h3>
-               <form onSubmit={handleBooking} className='mt-10 text-white'>
+                <h3 className="text-3xl text-start  font-bold">Request an order </h3>
+               <form onSubmit={handleBooking} className='mt-10 '>
 
                <input type="text" name='item' defaultValue={version_name}  disabled  placeholder="Item Name" className="input  w-full rounded-sm mb-4 input-bordered " /><br/>
 
@@ -70,9 +70,9 @@ const BookingModal = ({phone, setPhone, refetch, setBooked }) => {
 
                <input type="text"  name='email'  defaultValue={user?.email} readOnly  placeholder="Email Address" className="input w-full rounded-sm mb-4 input-bordered " /> <br/>
 
-               <input type="text"  name='address' placeholder="Address" className="input text-white w-full rounded-sm mb-4 input-bordered " /> <br/>
+               <input type="text"  name='address' placeholder="Address" className="input w-full rounded-sm mb-4 input-bordered " /> <br/>
 
-               <input type="text"  name='phoneNumber' placeholder="Phone Number" className="input text-white w-full rounded-sm mb-4 input-bordered " /> <br/>
+               <input type="text"  name='phoneNumber' placeholder="Phone Number" className="input w-full rounded-sm mb-4 input-bordered " /> <br/>
 
                <input type="Submit"   value="Submit"  className="input w-full bg-neutral text-white rounded-sm mb-4  "/>
                </form>

@@ -1,5 +1,6 @@
 import React, { useContext, useState,  } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import UseToken from '../Hooks/UseToken';
 
@@ -7,8 +8,8 @@ import { AuthContext } from './Contexts/Context';
 
 const Login = () => {
 
-    const {register, formState : {errors}, handleSubmit} = useForm()
-        const {loginUser, googleSignIn} = useContext(AuthContext)
+    const {register, formState : {errors}, handleSubmit, handleChange} = useForm()
+        const {user, loginUser, updateUser,  googleSignIn } = useContext(AuthContext)
     // password na milar error
     const [loginError, setLoginError ] = useState('')
 
@@ -35,10 +36,13 @@ const Login = () => {
     const handleLogin = data => {
         console.log(data)
         setLoginError('')
+
+
         loginUser(data.email, data.password)
         .then((result) => {
             const user = result.user;
             console.log(user)
+            toast.success(`Welcome back to Astor ${user.displayName}.`)
             setLoginUserEmail(data.email)
         
         })
@@ -47,13 +51,34 @@ const Login = () => {
             setLoginError(error.message)
         });
 
+
+  
+
     }
  
+  
+    const handleGoogle = data => {
+        setLoginError('')
+        googleSignIn()
+        .then((result) =>{
+            const user  = result.user
+            console.log(user)
+            toast.success(`Welcome back to Astor ${user.displayName}.`)
+            navigate(from, {replace: true}) 
+        })
+        .catch((error) => { 
+            console.log(error)
+            setLoginError(error)
+        })
+       
+    }
+
+
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
+        <div className='h-[800px] flex justify-center pt-20'>
                <div className='w-96 p-7'>
-                    <h2 className='text-4xl text-white font-bold '>Login!</h2>
+                    <h2 className='text-4xl text-black font-bold uppercase mb-4'>Log In</h2>
                     <form onSubmit={handleSubmit(handleLogin)}>
 
                  <div className="form-control w-full max-w-xs">
@@ -63,6 +88,9 @@ const Login = () => {
                     <input type='email'  className='input input-bordered' {...register("email" , {required: "Email address is required"})}  />
                     {errors.email && <p className='text-error'>{errors.email?.message}</p>}
                 </div>
+
+                    
+
                  <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Password</span>
@@ -76,11 +104,11 @@ const Login = () => {
                 </div>
                 
                 {/* <p>{data}</p> */}
-                <input className='btn btn-primary text-white w-full' value='submit' type="submit" />
+                <input className='btn btn-primary text-white w-full' value='Log In' type="submit" />
                 {loginError && <p className='text-errors'>{loginError}</p>}
-                <p>New to Upscale Resale?<Link  className=' font-bold text-white' to='/signup'> Create new account!</Link></p>
+                <p>New to Astor ?<Link  className=' font-bold text-black mt-4' to='/signup'> Create new account. </Link></p>
                 <div className='divider'>OR</div>
-                <input   className='btn btn-outline w-full'  value='Continue with Goggle'  />
+                <input  onClick={handleGoogle} className='btn btn-primary w-full' value='Continue with Goggle' />
                 </form>
                
                </div>

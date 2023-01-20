@@ -8,7 +8,7 @@ import Loading from '../../Pages/Loading/Loading';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 
 const PostedItems = () => {
-    const {user} = useContext(AuthContext)
+    const {user,} = useContext(AuthContext)
     const [deletingDoctor, setDeletingDoctor] = useState(null)
 
 
@@ -19,10 +19,10 @@ const PostedItems = () => {
 
     }
     const { data: items, isLoading, refetch } = useQuery({
-        queryKey: ['addItems'],
+        queryKey: ['addItems', user?.email],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/addItems`, {
+                const res = await fetch(`https://astor-server-ochre.vercel.app/addItems?email=${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem("accessToken")}`
                     }
@@ -40,7 +40,7 @@ const PostedItems = () => {
 
     const handleDeleteDoctor = (item) => {
         console.log(item)
-        fetch(`http://localhost:5000/addItems/${item._id}`, {
+        fetch(`https://astor-server-ochre.vercel.app/addItems/${item._id}`, {
             method : "DELETE",
             headers : {
                 authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -58,7 +58,7 @@ const PostedItems = () => {
     }
 
     const handleAdvertise = (id) => {
-        fetch(`http://localhost:5000/addItems/${id}`, {
+        fetch(`https://astor-server-ochre.vercel.app/addItems/${id}`, {
           method: "PUT",
           headers : {
             authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -83,9 +83,9 @@ const PostedItems = () => {
     
 
     return (
-        <div className='text-start my-20 mb-60 '>
-            <h1 className='text-4xl  font-bold  text-secondary mt-10'>Dear, {user?.displayName}!</h1>
-            <h1 className='lg:text-3xl sm:text-xl font-bold mb-10'>{items?.length} items posted by you for resale.</h1>
+        <div className='my-10 mb-60 text-start px-6'>
+            <h1 className='text-2xl  font-bold  text-black mt-4'>Dear, {user?.displayName}!</h1>
+            <h1 className='text-gray-500 text-sm font-bold mb-2'>{items?.length} items posted by you for resale.</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 

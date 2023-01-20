@@ -1,0 +1,14 @@
+.product-hover{
+    display: none;
+  
+}
+.card:hover .product-hover{
+    display: block;
+    background-color: rgba(128, 128, 128, 0.212);
+}
+.card:hover .product-card{
+    color: #5C7F67;
+}
+.phone-card{
+    background-color: rgba(0, 0, 0, 0.301);
+}

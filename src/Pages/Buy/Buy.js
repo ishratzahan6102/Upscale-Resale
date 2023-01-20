@@ -6,32 +6,22 @@ import PhoneCard from './PhoneCard';
 
 const Buy = () => {
     const categories = useLoaderData()
-    const {_id, phones, brand} = categories
 
-
-    const [phone, setPhone] = useState(null)
     
-
-
     return (
-        <div className='max-w-[1100px] mx-auto my-20'>
+        <div className='max-w-[1100px] p-6 mx-auto'>
             
-            <h1 className='text-4xl font-bold text-white'>{brand} Brand Collection</h1>
-            <div className='grid lg:grid-cols-2 mx-auto sm:grid-cols-1 gap-10 my-10'>
-                    {phones.map(phone => <PhoneCard
-                    key={phone.id}
-                    phone={phone}
-                    setPhone={setPhone}
-                    ></PhoneCard>)}
+            <h1 className='text-4xl font-bold text-white'>Brand Collection</h1>
+            <div className='grid grid-cols-1 gap-10'>
+                   {
+                    categories.map(category => <PhoneCard
+                    key={category._id}
+                    category={category}
+                    >
+                    </PhoneCard>)
+                   }
                 </div>
-                {
-                    phone &&
-                    <BookingModal
-                    phone={phone}
-                    setPhone={setPhone}
-                   
-                    ></BookingModal>
-                }
+                
         </div>
     );
 };

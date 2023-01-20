@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import AddAnItem from "../Dashboard/AddAnItem/AddAnItem";
 import AllUsers from "../Dashboard/AllUsers/AllUsers";
 import MySellers from "../Dashboard/MySellers/MySellers";
-import MyOrders from "../Dashboard/MyOrders/MyOrders";
 import PostedItems from "../Dashboard/PostedItems/PostedItems";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/MainLayout";
@@ -12,14 +11,11 @@ import Journals from "../Pages/Journals/Journals";
 import Login from "../Pages/Login";
 import PageNotFound from "../Pages/PageNotFound";
 import Signup from "../Pages/Signup";
-
 import MyBuyers from "../Dashboard/MyBuyers/MyBuyers";
-import AdminRoute from "./AdminRoute/AdminRoute";
-import SellerRoute from "./SellerRoute/SellerRoute";
 import WishList from "../Dashboard/WishList/WishList";
 import PrivateRoute from "./PrivateRoute";
-import BuyerRoute from "./BuyerRoute/BuyerRoute";
-import Dashboard from "../Dashboard/Dashboard/Dashboard";
+import MyOrders from "../Dashboard/MyOrders/MyOrders";
+
 
 export const router = createBrowserRouter([
     {
@@ -31,11 +27,10 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/category/:id',
-                element: <Buy></Buy>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                path: '/category/:brand',
+                element: <PrivateRoute><Buy></Buy></PrivateRoute>,
+                loader: ({params}) => fetch(`https://astor-server-ochre.vercel.app/category/${params.brand}`)
             },
-             
             {
                 path: '/login',
                 element: <Login></Login>
@@ -45,7 +40,7 @@ export const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-                path: '/journals',
+                path: '/blog',
                 element: <Journals></Journals>
             },
             {
@@ -53,45 +48,42 @@ export const router = createBrowserRouter([
                 element: <PageNotFound></PageNotFound>
             },
             
-
-            
         ]
     },
     {
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
-            {
-                path: '/dashboard/',
-                element: <Dashboard></Dashboard>
-            },
-            {
-                path: '/dashboard',
-                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
-            },
+         
+           
+          
             {
                 path: '/dashboard/users',
-                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+                element: <AllUsers></AllUsers>,
             },
             {
                 path: '/dashboard/mySellers',
-                element: <AdminRoute><MySellers></MySellers></AdminRoute>,
+                element: <MySellers></MySellers>,
             },
             {
                 path: '/dashboard/myBuyers',
-                element:  <AdminRoute><MyBuyers></MyBuyers></AdminRoute>
+                element: <MyBuyers></MyBuyers>
             },
             {
                 path: '/dashboard/wishList',
-                element:  <AdminRoute><WishList></WishList></AdminRoute>,
+                element: <WishList></WishList>,
+            },
+            {
+                path: '/dashboard/myOrders',
+                element: <MyOrders></MyOrders>,
             },
             {
                 path: '/dashboard/postedItems',
-                element: <SellerRoute><PostedItems></PostedItems></SellerRoute>,
+                element:<PostedItems></PostedItems>
             },
             {
                 path: '/dashboard/addAnItem',
-                element: <SellerRoute><AddAnItem></AddAnItem></SellerRoute>,
+                element:<AddAnItem></AddAnItem>
             },
         ]
     }

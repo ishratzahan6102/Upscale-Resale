@@ -1,0 +1,14 @@
+/* .hover{
+    display: none;
+  
+}
+.card:hover .hover{
+    display: block;
+    background-color: rgba(19, 18, 18, 0.849);
+}
+.card:hover .product-card{
+    color: #5C7F67;
+} */
+.ad-card-img-bg{
+    background-color: rgba(247, 247, 247, 0.76);
+}

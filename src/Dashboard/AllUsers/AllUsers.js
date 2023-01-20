@@ -9,7 +9,7 @@ const AllUsers = () => {
     const {data : users = [], refetch, isLoading} = useQuery({
         queryKey : ['users'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users`)
+            const res = await fetch(`https://astor-server-ochre.vercel.app/users`)
             const data = await res.json()
             return data;
         }
@@ -24,7 +24,7 @@ const AllUsers = () => {
     }
     const handleDeleteUser = (user) => {
       console.log(user)
-      fetch(`http://localhost:5000/users/${user._id}`, {
+      fetch(`https://astor-server-ochre.vercel.app/users/${user._id}`, {
           method : "DELETE",
           headers : {
               authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -42,7 +42,7 @@ const AllUsers = () => {
   }
 
     const handleMakeAdmin = (id) => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://astor-server-ochre.vercel.app/users/admin/${id}`, {
           method: "PUT",
           headers : {
             authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -62,9 +62,9 @@ const AllUsers = () => {
       }
   
     return (
-        <div className='my-10 mb-60 text-start' >
-            <h1 className='text-4xl  font-bold  text-white my-10'>All Users</h1>
-            <div className="overflow-x-auto text-gray-300">
+        <div className='my-10 mb-60 text-start px-6' >
+            <h1 className='text-2xl  font-bold  text-black mt-10'>All Users ({users.length})</h1>
+            <div className="overflow-x-auto">
                 <table className="table text-center  w-full">
                     <thead >
                         <tr>
@@ -73,12 +73,13 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Account Type</th>
-                            <th>Take Action</th>
+                            {/* <th>Take Action</th> */}
                             <th>Delete</th>
                            
                           
                         </tr>
                     </thead>
+                    
                     <tbody>
                         {
                             users?.map((user, i) => 
@@ -87,7 +88,7 @@ const AllUsers = () => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.account}</td>
-                            <td>{
+                            {/* <td>{
                                 user?.role !== "admin" && 
                                 <button onClick={() => handleMakeAdmin(user._id)}  className='btn btn-xs btn-success'>Make Admin</button>
                                 }
@@ -97,10 +98,10 @@ const AllUsers = () => {
                                 }
                            
                             
-                            </td>
+                            </td> */}
                             <td>{
                                 user?.role !== "admin" && 
-                                <label  onClick={() => setDeletingUsers(user)} htmlFor="confirmation-modal" className="btn btn-xs btn-error">Delete</label>
+                                <label  onClick={() => setDeletingUsers(user)} htmlFor="confirmation-modal" className="btn btn-xs btn-success">Delete</label>
                                 }
                                 {
                                 user?.role === "admin" && 

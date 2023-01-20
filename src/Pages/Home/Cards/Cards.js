@@ -5,7 +5,7 @@ import Card from './Card';
 const Cards = () => {
     const [phones, setPhones] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/category`)
+        fetch(`https://astor-server-ochre.vercel.app/allPhones`)
         .then(res => res.json())
         .then(data => setPhones(data))
 
@@ -15,10 +15,10 @@ const Cards = () => {
 
 
     return (
-        <div className='my-20 justify-center'>
-            <small>Have a look on our</small>
-            <h1 className='text-4xl  font-bold text-white mb-10 '>Categories</h1>
-            <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-20' >
+        <div className='py-20 text-center max-w-[1100px] mx-auto px-6 lg:px-0'>
+             <h1 className='text-black font-bold text-3xl lg:text-4xl mb-2'>New Collection</h1>
+            <p className='text-gray-600 '>Check out the categories</p>
+            <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-6 mt-10' >
                 {
                     phones.map(card => <Card
                         key={card._id}

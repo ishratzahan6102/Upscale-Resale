@@ -1,20 +1,27 @@
 import React from 'react';
 import Advertise from './Advertise/Advertise';
+import Ad from './Advertisement/Ad';
 import Banner from './Banner/Banner';
+import BigBanner from './BigBanner/BigBanner';
 
 
 import Cards from './Cards/Cards';
+import ExclusiveCollection from './ExclusiveCollection/ExclusiveCollection';
 import Reviews from './Reviews/Reviews';
+import Services from './Services/Services';
+import WideBanner from './WideBanner/WideBanner';
 
 const Home = () => {
     return (
-        <div className='my-20 mb-60 lg:text-start text-center'>
-            <h1 className='text-4xl text-white font-bold'>Buy & Resale Phones</h1>
-            <small className='text-gray-400'>at best price</small>
-           <Banner></Banner>
+        <div className=' lg:text-start text-center'>
+            <Banner></Banner>
+            <Services></Services>
             <Cards></Cards>
-            <Advertise></Advertise>
-            <Reviews></Reviews>
+            <ExclusiveCollection></ExclusiveCollection>
+            <BigBanner></BigBanner> 
+            <Ad></Ad>
+            <WideBanner></WideBanner>
+            
         </div>
     );
 };
