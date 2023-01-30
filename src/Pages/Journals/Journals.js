@@ -2,8 +2,8 @@ import React from 'react';
 
 const Journals = () => {
     return (
-        <div className='text-black font-semibold text-base mt-20 mb-96 max-w-[1100px] p-6 mx-auto my-20 '>
-            <h1 className='text-4xl text-black mb-10'>Gather some knowledge from our blog!</h1>
+        <div className='text-white font-semibold text-base mt-20 mb-96 max-w-[1100px] p-6 mx-auto my-20 '>
+            <h1 className='text-4xl text-white mb-10'>Gather some knowledge from our blog!</h1>
             <p>Question : What are the different ways to manage a state in a React application?</p>
             <p>Answer 1 : As your application grows, it helps to be more intentional about how your state is organized and how the data flows between your components. Redundant or duplicate state is a common source of bugs. In this chapter, you’ll learn how to structure your state well, how to keep your state update logic maintainable, and how to share state between distant components.</p> <br></br>
             <p>Question : How does prototypical inheritance work?</p>

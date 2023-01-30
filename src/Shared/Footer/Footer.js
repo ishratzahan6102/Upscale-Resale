@@ -16,38 +16,38 @@ const Footer = () => {
   return (
 
 
-    <footer className="footer flex flex-col-reverse justify-evenly lg:flex-row p-10 lg:p-20  bg-base-100 text-base-content">
+    <footer className="footer flex flex-col-reverse justify-evenly lg:flex-row p-10 lg:p-20  bg-primary text-base-content">
       <div className=''>
         <Link to='/' className="font-bold  lg:text-5xl text-4xl">Astor</Link>
-        <p className='text-gray-500'>Copyright © Astor. All Right Reserved.</p>
+        <p className='text-white-500'>Copyright © Astor. All Right Reserved.</p>
       </div>
       <div>
-        <span className=" font-bold text-base text-gray-900">INFORMATION</span>
-        <a className="link link-hover text-base text-gray-500">Blog</a>
-        <a className="link link-hover text-base text-gray-500">Job</a>
-        <a className="link link-hover text-base text-gray-500">FAQ</a>
-        <a className="link link-hover text-base text-gray-500">Privacy Policy</a>
+        <span className=" font-bold text-base text-white-900">INFORMATION</span>
+        <a className="link link-hover text-base text-white-500">Blog</a>
+        <a className="link link-hover text-base text-white-500">Job</a>
+        <a className="link link-hover text-base text-white-500">FAQ</a>
+        <a className="link link-hover text-base text-white-500">Privacy Policy</a>
       </div>
       <div>
-        <span className=" font-bold text-base text-gray-900">USEFUL LINKS</span>
-        <a className="link link-hover text-base text-gray-500">Refund policy</a>
-        <a className="link link-hover text-base text-gray-500">Login</a>
-        <a className="link link-hover text-base text-gray-500">Order status</a>
-        <a className="link link-hover text-base text-gray-500">Site Map</a>
+        <span className=" font-bold text-base text-white-900">USEFUL LINKS</span>
+        <a className="link link-hover text-base text-white-500">Refund policy</a>
+        <a className="link link-hover text-base text-white-500">Login</a>
+        <a className="link link-hover text-base text-white-500">Order status</a>
+        <a className="link link-hover text-base text-white-500">Site Map</a>
       </div>
       <div>
-        <span className=" font-bold text-base text-gray-900">HELP CENTER</span>
-        <a className="link link-hover text-base text-gray-500">Blog</a>
-        <a className="link link-hover text-base text-gray-500">Job</a>
-        <a className="link link-hover text-base text-gray-500">FAQ</a>
-        <a className="link link-hover text-base text-gray-500">Privacy Policy</a>
+        <span className=" font-bold text-base text-white-900">HELP CENTER</span>
+        <a className="link link-hover text-base text-white-500">Blog</a>
+        <a className="link link-hover text-base text-white-500">Job</a>
+        <a className="link link-hover text-base text-white-500">FAQ</a>
+        <a className="link link-hover text-base text-white-500">Privacy Policy</a>
       </div>
       <div>
-        <span className=" font-bold text-base text-gray-900">FOLLOW US ON</span>
-        <a className="link link-hover text-base text-gray-500">Twitter</a>
-        <a className="link link-hover text-base text-gray-500">instagram</a>
-        <a className="link link-hover text-base text-gray-500">Linkedin</a>
-        <a className="link link-hover text-base text-gray-500">Pinterest</a>
+        <span className=" font-bold text-base text-white-900">FOLLOW US ON</span>
+        <a className="link link-hover text-base text-white-500">Twitter</a>
+        <a className="link link-hover text-base text-white-500">instagram</a>
+        <a className="link link-hover text-base text-white-500">Linkedin</a>
+        <a className="link link-hover text-base text-white-500">Pinterest</a>
       </div>
     </footer>
 

@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
             {
                 path: '/category/:brand',
                 element: <PrivateRoute><Buy></Buy></PrivateRoute>,
-                loader: ({params}) => fetch(`https://astor-server-ochre.vercel.app/category/${params.brand}`)
+                loader: ({params}) => fetch(`http://localhost:5000/category/${params.brand}`)
             },
             {
                 path: '/login',
@@ -46,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path: '*',
                 element: <PageNotFound></PageNotFound>
+            },
+            {
+                path: '/wishList',
+                element: <WishList></WishList>,
             },
             
         ]
@@ -69,10 +73,7 @@ export const router = createBrowserRouter([
                 path: '/dashboard/myBuyers',
                 element: <MyBuyers></MyBuyers>
             },
-            {
-                path: '/dashboard/wishList',
-                element: <WishList></WishList>,
-            },
+         
             {
                 path: '/dashboard/myOrders',
                 element: <MyOrders></MyOrders>,

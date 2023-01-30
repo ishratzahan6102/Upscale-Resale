@@ -9,7 +9,7 @@ const AllUsers = () => {
     const {data : users = [], refetch, isLoading} = useQuery({
         queryKey : ['users'],
         queryFn: async () => {
-            const res = await fetch(`https://astor-server-ochre.vercel.app/users`)
+            const res = await fetch(`http://localhost:5000/users`)
             const data = await res.json()
             return data;
         }
@@ -24,7 +24,7 @@ const AllUsers = () => {
     }
     const handleDeleteUser = (user) => {
       console.log(user)
-      fetch(`https://astor-server-ochre.vercel.app/users/${user._id}`, {
+      fetch(`http://localhost:5000/users/${user._id}`, {
           method : "DELETE",
           headers : {
               authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -42,7 +42,7 @@ const AllUsers = () => {
   }
 
     const handleMakeAdmin = (id) => {
-        fetch(`https://astor-server-ochre.vercel.app/users/admin/${id}`, {
+        fetch(`http://localhost:5000/users/admin/${id}`, {
           method: "PUT",
           headers : {
             authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -63,7 +63,7 @@ const AllUsers = () => {
   
     return (
         <div className='my-10 mb-60 text-start px-6' >
-            <h1 className='text-2xl  font-bold  text-black mt-10'>All Users ({users.length})</h1>
+            <h1 className='text-4xl font-bold text-black md:text-white mb-10'>USERS</h1>
             <div className="overflow-x-auto">
                 <table className="table text-center  w-full">
                     <thead >

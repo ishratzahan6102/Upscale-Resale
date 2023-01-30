@@ -13,29 +13,25 @@ const WishList = () => {
     const closeModal = () => {
         setDeletingWish(null)
     }
-    const { data: wishLists = [], isLoading, refetch } = useQuery({
-        queryKey: ['wishList'],
+
+    const url = `http://localhost:5000/wishList?email=${user?.email}`;
+
+    const { data: wishlist = [], isLoading, refetch } = useQuery({
+
+        queryKey: ['wishList', user?.email],
         queryFn: async () => {
-            try {
-                const res = await fetch(`https://astor-server-ochre.vercel.app/wishList`, {
-                    headers: {
-                        authorization: `bearer ${localStorage.getItem("accessToken")}`
-                    }
-                })
-                const data = await res.json()
-                return data
+            const res = await fetch(url, {
+            });
 
-            }
-            catch (errors) {
-
-            }
+            const data = await res.json();
+            return data;
         }
     })
 
 
     const handleDeleteWish = (wish) => {
         console.log(wish)
-        fetch(`https://astor-server-ochre.vercel.app/wishList/${wish._id}`, {
+        fetch(`http://localhost:5000/wishList/${wish._id}`, {
             method : "DELETE",
             headers : {
                 authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -58,62 +54,60 @@ const WishList = () => {
     }
     
     return (
-        <div className='my-10 mb-60 text-start px-6'>
-            <h1 className='text-2xl  font-bold  text-black mt-10'>Admin, {user?.displayName}</h1>
-            <h1 className='text-gray-500 text-sm font-bold mb-2'>{wishLists?.length} items reported by the customers.</h1>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
-
-                    <thead>
-                        <tr>
-                            <th>Index</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th>Delete</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody className=' my-4'>
-
-                        {   wishLists && 
-                            wishLists?.map((wish, i) =>
-                                <tr key={wish._id}>
-                                    <th>{i + 1}</th>
-                                    <td><div className="avatar">
-                                        <div className="w-12">
-                                            <img src={wish.img}  alt="photo"/>
-                                        </div>
-                                    </div></td>
-                                    <td>{wish.itemName}</td>
-                                    <td>{wish.userName}</td>
-                                    <td>{wish.price}</td>
-                    
-                                    <td>
-                                        <label className="text-gray-300">Noted</label>
-                                    </td>
-                                    <td>
-                                        <label onClick={() => setDeletingWish(wish)} htmlFor="confirmation-modal" className="btn btn-xs btn-error">Delete</label>
-                                    </td>
-                                </tr>)
-                        }
-
-                    </tbody>
-                </table>
-            </div>
-            {
-                deletingWish && <ConfirmationModal
-                title={`Are you sure tou want to delete this?`}
-                message={`If you delete ${deletingWish.name} it can not be undone.`}
-                closeModal={closeModal}
-                successButtonName="Delete"
-                successAction={handleDeleteWish}
-                modalData={deletingWish}
-                ></ConfirmationModal>
-            }
+        <div className='py-20 text-center max-w-[1200px] mx-auto p-10'>
+            <div className='text-center'>
+            <h1 className='text-4xl font-bold  text-black md:text-white mb-10'>WISHLIST</h1>
            
+           <div className="overflow-x-auto">
+               <table className="table w-full">
+
+                   <thead>
+                       <tr>
+                           <th>Index</th>
+                           <th>Image</th>
+                           <th>Name</th>
+                           <th>Price</th>
+                           <th>Delete</th>
+                           
+                       </tr>
+                   </thead>
+                   <tbody className=' my-4'>
+
+                       {   wishlist && 
+                           wishlist?.map((wish, i) =>
+                               <tr key={wish._id}>
+                                   <th>{i + 1}</th>
+                                   <td><div className="avatar">
+                                       <div className="w-12">
+                                           <img src={wish.picture}  alt="photo"/>
+                                       </div>
+                                   </div></td>
+                                   <td>{wish.itemName}</td>
+                                  
+                                   <td>{wish.price}</td>
+                   
+                               
+                                   <td>
+                                       <label onClick={() => setDeletingWish(wish)} htmlFor="confirmation-modal" className="btn btn-xs btn-error">Delete</label>
+                                   </td>
+                               </tr>)
+                       }
+
+                   </tbody>
+               </table>
+           </div>
+           {
+               deletingWish && <ConfirmationModal
+               title={`Are you sure tou want to delete this?`}
+               message={`If you delete ${deletingWish.name} it can not be undone.`}
+               closeModal={closeModal}
+               successButtonName="Delete"
+               successAction={handleDeleteWish}
+               modalData={deletingWish}
+               ></ConfirmationModal>
+           }
+          
+            </div>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { FaBeer, FaBell, FaHeart, FaInfo, FaInfoCircle, FaRegistered, FaSearch, FaShoppingBag, FaShoppingBasket, FaSignInAlt, FaStore, FaUser, FaUserAltSlash, FaUserCheck } from 'react-icons/fa';
+import { FaBeer, FaBell, FaDatabase, FaHeart, FaInfo, FaInfoCircle, FaList, FaRegistered, FaSearch, FaShoppingBag, FaShoppingBasket, FaSignInAlt, FaStore, FaUser, FaUserAltSlash, FaUserCheck } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import UseAdmin from '../../Hooks/UseAdmin';
 import UseSeller from '../../Hooks/UseSeller';
@@ -18,8 +18,9 @@ const Navbar = () => {
             <li><Link to='/'>HOME</Link></li>
             {/* <li><Link to='/shop'>SHOP</Link></li> */}
             <li><Link to='/blog'>BLOG</Link></li>
-            <li><Link to='/dashboard/myOrders'>DASHBOARD</Link></li>
-            
+            <li><Link to='/dashboard'>DASHBOARD</Link></li>
+            <li><Link to='/wishList'>WISHLIST</Link></li>
+
 
 
         </>
@@ -27,9 +28,9 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100 text-gray-600  lg:px-20 h-16 align-middle shadow-lg">
+        <div className="navbar bg-primary text-white  lg:px-20 h-16 align-middle shadow-lg">
 
-            <div className="navbar-start  ">
+            <div className="navbar-start">
                 {/* logo */}
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,7 +42,7 @@ const Navbar = () => {
                 </div>
 
 
-                <Link to='/' className="font-bold text-primary lg:text-5xl text-4xl">Astor</Link>
+                <Link to='/' className="font-bold text-white lg:text-5xl text-4xl">Astor</Link>
 
             </div>
 
@@ -57,78 +58,63 @@ const Navbar = () => {
 
             <div className="navbar-end lg:flex ">
                 {/* navbar icons */}
-                
+
                 <button className="btn-ghost  uppercase">
-                        {
-                            user?.uid?
-                           
+                    {
+                        user?.uid ?
+
                             <>
 
-                            <Link><div className="dropdown dropdown-end">
+                                <Link><div className="dropdown dropdown-end">
                                     <label tabIndex={0} className="btn btn-ghost btn-square">
                                         <div className="text-xl rounded-full">
-                                       <FaUser></FaUser>
+                                            <FaUser></FaUser>
                                         </div>
                                     </label>
                                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                      
+
                                         <li><Link onClick={logOut}>Logout</Link></li>
                                         <li><Link to="/signup">Register</Link></li>
-                                       
+
                                     </ul>
                                 </div>
-                            </Link>
+                                </Link>
 
-                        </>
-                        :
-                        <>
-                        <Link>
+                            </>
+                            :
+                            <>
+                                <Link>
 
-                        <div className="dropdown dropdown-end">
-                                    <label tabIndex={0} className="btn btn-ghost btn-square">
-                                        <div className="text-xl rounded-full">
-                                        <FaSignInAlt></FaSignInAlt>
-                                        </div>
-                                    </label>
-                                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                        
-                                        <li><Link to="/login">Login</Link></li>
-                                        <li><Link to="/signup">Register</Link></li>
-                                       
-                                    </ul>
-                                </div>
+                                    <div className="dropdown  dropdown-end">
+                                        <label tabIndex={0} className="btn btn-ghost btn-square">
+                                            <div className="text-xl rounded-full">
+                                                <FaSignInAlt></FaSignInAlt>
+                                            </div>
+                                        </label>
+                                        <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
 
+                                            <li><Link to="/login">Login</Link></li>
+                                            <li><Link to="/signup">Register</Link></li>
 
-
-                       
-                        </Link>
-                        </>
-                        
-                      
-                        }
-                       
-                           
-
-                          
-
-                    
+                                        </ul>
+                                    </div>
+                                </Link>
+                            </>
+                    }
                 </button>
+                <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-sm lg:hidden">
+                
+                <FaList className='text-xl '></FaList>
+            
+                </label>
+
                 <span className='tooltip' data-tip="wishlist">
-                    <button className="btn btn-square text-outline text-lg btn-ghost"  >
+                    <button className="btn text-white  btn-sm  text-outline text-lg btn-ghost"  >
                         <FaInfoCircle></FaInfoCircle>
                     </button>
                 </span>
-               
-                {/* <button className="mx-4 text-lg text-primary btn-ghost ">
-                    <FaSearch></FaSearch>
-                </button> */}
-
-
-
-
-
-                {/* navbar icons */}
             </div>
+           
         </div>
     );
 };

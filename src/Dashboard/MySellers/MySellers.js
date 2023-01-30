@@ -19,7 +19,7 @@ const MySellers = () => {
     const {data : sellers = [], refetch} = useQuery({
         queryKey : ['users/seller'],
         queryFn: async () => {
-            const res = await fetch(`https://astor-server-ochre.vercel.app/users/seller`)
+            const res = await fetch(`http://localhost:5000/users/seller`)
             const data = await res.json()
             return data;
         }
@@ -27,7 +27,7 @@ const MySellers = () => {
     
 
     const handleVerify = (id) => {
-        fetch(`https://astor-server-ochre.vercel.app/users/seller/${id}`, {
+        fetch(`http://localhost:5000/users/seller/${id}`, {
           method: "PUT",
           headers : {
             authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -44,7 +44,7 @@ const MySellers = () => {
 
       const handleDeleteDoctor = (seller) => {
         console.log(seller)
-        fetch(`https://astor-server-ochre.vercel.app/users/${seller._id}`, {
+        fetch(`http://localhost:5000/users/${seller._id}`, {
             method : "DELETE",
             headers : {
                 authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -63,7 +63,7 @@ const MySellers = () => {
 
     return (
         <div className="my-10 mb-60 text-start  px-6">
-            <h1 className='text-2xl font-bold  text-black mt-10'>All Sellers ({sellers.length})</h1>
+            <h1 className='text-4xl font-bold  text-black md:text-white mb-10'>SELLERS</h1>
             <div className="overflow-x-auto text-center ">
                 <table className="table text-center w-full">
                     <thead className=''>

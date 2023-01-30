@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import UseToken from '../Hooks/UseToken';
-
+import signup from '../assets/signup.jpg'
 import { AuthContext } from './Contexts/Context';
 
 const Signup = () => {
@@ -80,7 +80,7 @@ const Signup = () => {
 
     const saveUser = (name, email, account) => {
         const user = { name, email, account }
-        fetch(`https://astor-server-ochre.vercel.app/users`, {
+        fetch(`http://localhost:5000/users`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -97,24 +97,33 @@ const Signup = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center pt-20'>
+
+
+        <div className="hero  max-w-[900px] mx-auto bg-violet-200 text-black  py-6 ">
+        <div className="hero-content flex-col-reverse lg:flex-row justify-between">
+            <img src={signup} className="max-w-sm rounded-lg shadow-2xl" />
+
+            <div>
+
+             
+        <div className=''>
             <div className='w-96 p-7'>
                 <h2 className='text-4xl font-bold uppercase'>Sign up</h2>
                 <form onSubmit={handleSubmit(handleSignup)}>
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text text-black">Name</span>
                         </label>
-                        <input type='text' className='input input-bordered' {...register("name", { required: "Name is required" })} />
+                        <input type='text' className='input input-bordered bg-white' {...register("name", { required: "Name is required" })} />
                         {errors.name && <p className='text-error'>{errors.name?.message}</p>}
                     </div>
 
                     <div className="form-control w-full max-w-xs ">
                         <label className="label">
-                            <span className="label-text">Choose account type</span>
+                            <span className="label-text text-black">Choose account type</span>
                         </label>
-                        <select  className='w-full p-4 bg-black text-white' {...register("account")}>
+                        <select  className='w-full p-1 bg-white text-black' {...register("account")}>
                             <option defaultValue="buyer ">Buyer</option>
                             <option value="seller">Seller</option>
                         </select>
@@ -124,18 +133,18 @@ const Signup = () => {
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text text-black">Email</span>
                         </label>
-                        <input type='text' className='input input-bordered' {...register("email", { required: "Email address is required" })} />
+                        <input type='text' className='input input-bordered bg-white' {...register("email", { required: "Email address is required" })} />
                         {errors.email && <p className='text-error'>{errors.email?.message}</p>}
                     </div>
 
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text text-black">Password</span>
                         </label>
-                        <input type='password' className='input input-bordered' {...register("password", {
+                        <input type='password' className='input input-bordered bg-white' {...register("password", {
                             required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters long" },
                             pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8}/, message: "Password must be uppercase number & special characters" }
                         })} />
@@ -143,23 +152,36 @@ const Signup = () => {
                         {errors.password && <p className='text-error'>{errors.password?.message}</p>}
 
                         <label className="label">
-                            <span className="label-text">Forget Password ?</span>
+                            <span className="label-text text-black">Forget Password ?</span>
                         </label>
                     </div>
 
                     {/* <p>{data}</p> */}
-                    <input className='btn btn-primary text-white w-full' value='Sign up' type="submit" />
+                    <input className='btn btn-primary border-none uppercase  bg-gradient-to-r from-primary  to-violet-600 text-white w-full' value='Sign up' type="submit" />
                     {signUpError && <p className='text-error'>{signUpError}</p>}
                     <Toaster />
-                    <p>Already have an account ?<Link className='text-black font-bold' to='/login'> Login here.</Link></p>
+                    <p>Already have an account ?<Link className='text-black font-bold' to='/login'> Login Here</Link></p>
                      <div className='divider'>OR</div>
-                <input  onClick={handleGoogle} className='btn btn-primary w-full' value='Continue with Goggle' />
+               
+                     <div  onClick={handleGoogle} class="google-btn w-full  bg-gradient-to-r from-primary  to-violet-600 ">
+                        <div class="google-icon-wrapper">
+                            <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                        </div>
+                        <p class="btn-text  "><b>Sign in with google</b></p>
+                        </div>
                 </form>
 
             </div>
-
-
         </div>
+
+            </div>
+        </div>
+        </div>
+
+
+
+
+       
     );
 };
 

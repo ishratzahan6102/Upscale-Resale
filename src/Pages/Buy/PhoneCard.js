@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/Context';
 import BookingModal from './BookingModal/BookingModal';
 import { FaMailBulk, FaStar, FaTruck } from 'react-icons/fa';
@@ -9,114 +9,118 @@ import { FaMailBulk, FaStar, FaTruck } from 'react-icons/fa';
 
 const PhoneCard = ({ category, handleUpdate }) => {
     const [phone, setPhone] = useState(null)
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
-    const { id, resale_price, original_price, version_name, seller_name, location, published_date, years_of_use, picture, status } =  category
+    const { _id, resale_price, original_price, brand, version_name, seller_name, location, published_date, years_of_use, picture } = category
 
 
-    
 
-    const handleWishList = (data) => {
-        
-        const items = {
+
+    const handleWishList = () => {
+
+        const wishlist = {
             itemName: version_name,
-            seller_name: seller_name,
-            userName: user?.displayName,
+            location: location,
             email: user?.email,
+            used: years_of_use,
             price: resale_price,
-            img: picture,
-            wishListed: "yes"
-
+            picture: picture,
+            isWishlisted: "Yes"
         }
 
-        console.log(items)
-
-        // // post item information to the database
-        fetch(`https://astor-server-ochre.vercel.app/wishList`, {
+        console.log(wishlist)
+        fetch('http://localhost:5000/wishList', {
             method: 'POST',
             headers: {
-                "content-type": "application/json",
-               
+                'content-type': 'application/json'
             },
-            body: JSON.stringify(items)
+            body: JSON.stringify(wishlist)
         })
             .then(res => res.json())
-            .then(result => {
-                console.log(result)
-                toast.success(`${version_name} is added successfully`)
-
-
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    setPhone(null)
+                    toast.success('Added to wishlist!')
+                    navigate('/wishList')
+                }
+                else {
+                    toast.error(data.message)
+                }
             })
 
     }
 
 
-    return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white py-20 ">
 
-           <div>
-           <img className='w-96 mx-auto' src={picture} alt="" />
-           </div>
+
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-10 ">
+
+            <div>
+                <img className='w-full h-80  mx-auto px-10 py-4 md:p-4 bg-white' src={picture} alt="" />
+            </div>
             <div className="">
-                <h2 className="text-2xl text-gray-700">{version_name} </h2>
-                <p className='text-gray-400'>{seller_name}  <span className='text-gray-400 text-sm'>{location} </span>  </p>
-                <span className='text-gray-400 text-sm'>{published_date} </span>
-               
-                <div className='flex flex-row gap-4 mt-8'>
-                <div className="flex flex-row">
+                <h2 className="text-2xl text-white-700 ">{version_name} </h2>
+                <p className='text-white-400'>{seller_name}  </p>
+                <p className='text-white-400 text-sm'>{location} </p>
+                <p className='text-white-400 text-sm'>{published_date} </p>
+
+                <div className='flex flex-row gap-4 mt-2'>
+                    <div className="flex flex-row">
                         <FaStar className='text-yellow-400'></FaStar>
                         <FaStar className='text-yellow-400'></FaStar>
                         <FaStar className='text-yellow-400'></FaStar>
                         <FaStar className='text-yellow-400'></FaStar>
                         <FaStar className='text-yellow-400'></FaStar>
+                    </div>
+                    <span className='text-white-400'>5 star reviews</span>
                 </div>
-                <span className='text-gray-400'>No reviews</span>
-                </div>
-                <p>Availability: <span className='text-red-600  font-semibold'>Out of stock</span></p>
-                <p className='font-semibold mt-8 text-xl'>{resale_price} <span className='text-red-700'><s>{original_price}</s></span></p>
-                <div className='flex flex-row text-gray-700 mt-6 mb-10'>
+                <p>Availability: <span className='text-green-600  font-semibold'>In stock</span></p>
+                <p className='font-semibold mt-4 text-xl'>{resale_price} <span className='text-red-700'><s>{original_price}</s></span></p>
+                <div className='flex flex-row text-white-700 mt-4 mb-4'>
                     <FaTruck className='mt-1 mr-2'></FaTruck>
                     <span className='mr-6'>Shipping</span>
-                    <FaMailBulk className='mt-1 mr-2'></FaMailBulk>
-                    <span>Ask about this product</span>
+
+
                 </div>
-                <div className='flex flex-row gap-10 items-center mb-6'>
-                    <span className='text-gray-600'>Quantity:</span>
-                    <div>
-                    <input type="number" defaultValue="1" className="input input-bordered w-full max-w-xs" />
-                        <hr/>
-                    </div>
-                </div>
+
 
                 <div className="card-actions justify-start mt-6">
 
-<td>{
-    category?.wishListed !== "yes" &&
-    <label className="btn " onClick={() => handleWishList(category)}>Report</label>
-}
+                    <td>
 
-    {
-        category?.wishListed === "yes" &&
-        <button className='btn btn-outline btn-wide '>Report</button>
-    }
-</td>
+                        <label className="btn btn-primary normal-case rounded-sm" onClick={() => handleWishList()}>Add To Wishlist</label>
 
 
-<label onClick={() => setPhone(category)} htmlFor="booking-modal" className="btn btn-outline btn-wide" >Order Now</label>
 
-</div> 
+                    </td>
 
 
-               
+                    <label onClick={() => setPhone(category)} htmlFor="booking-modal" className="btn btn-warning rounded-sm normal-case" >Order Now</label>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
             </div>
 
             {
-                    phone &&
-                    <BookingModal
+                phone &&
+                <BookingModal
                     phone={phone}
                     setPhone={setPhone}
-                   
-                    ></BookingModal>
-                }
+
+                ></BookingModal>
+            }
         </div>
     );
 };

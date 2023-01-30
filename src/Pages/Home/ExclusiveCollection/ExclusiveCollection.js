@@ -12,7 +12,7 @@ import { FaStar } from 'react-icons/fa';
 
 const ExclusiveCollection = () => {
     return (
-        <div className='flex flex-col lg:flex-row text-start justify-around pb-20 pt-10 max-w-[1100px] mx-auto lg:px-0'>
+        <div className='flex flex-col lg:flex-row text-start justify-around pb-10 pt-10 max-w-[1100px] mx-auto lg:px-0'>
             <div className=''>
                 <p className='font-bold text-xl mb-4  p-4 '>New Arrivals</p>
                 <div className='flex flex-row gap-6 p-4'>

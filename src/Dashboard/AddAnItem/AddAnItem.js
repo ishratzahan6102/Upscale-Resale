@@ -44,7 +44,7 @@ const AddAnItem = () => {
                     console.log(items)
 
                     // post item information to the database
-                    fetch(`https://astor-server-ochre.vercel.app/addItems`, {
+                    fetch(`http://localhost:5000/addItems`, {
                         method: 'POST',
                         headers: {
                             "content-type": "application/json",
@@ -70,7 +70,7 @@ const AddAnItem = () => {
     // }
     return (
         <div className='my-10 mb-60 flex flex-col items-center px-6'>
-            <h1 className='text-2xl font-bold text-black mt-10 mb-4'>Add Your Product</h1>
+            <h1 className='text-2xl font-bold text-white mt-10 mb-4'>Add Your Product</h1>
            
             <form onSubmit={handleSubmit(handleAddDoctor)}>
             <label className="label">

@@ -22,7 +22,7 @@ const PostedItems = () => {
         queryKey: ['addItems', user?.email],
         queryFn: async () => {
             try {
-                const res = await fetch(`https://astor-server-ochre.vercel.app/addItems?email=${user?.email}`, {
+                const res = await fetch(`http://localhost:5000/addItems?email=${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem("accessToken")}`
                     }
@@ -40,7 +40,7 @@ const PostedItems = () => {
 
     const handleDeleteDoctor = (item) => {
         console.log(item)
-        fetch(`https://astor-server-ochre.vercel.app/addItems/${item._id}`, {
+        fetch(`http://localhost:5000/addItems/${item._id}`, {
             method : "DELETE",
             headers : {
                 authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -58,7 +58,7 @@ const PostedItems = () => {
     }
 
     const handleAdvertise = (id) => {
-        fetch(`https://astor-server-ochre.vercel.app/addItems/${id}`, {
+        fetch(`http://localhost:5000/addItems/${id}`, {
           method: "PUT",
           headers : {
             authorization : `bearer ${localStorage.getItem("accessToken")}`
@@ -84,8 +84,8 @@ const PostedItems = () => {
 
     return (
         <div className='my-10 mb-60 text-start px-6'>
-            <h1 className='text-2xl  font-bold  text-black mt-4'>Dear, {user?.displayName}!</h1>
-            <h1 className='text-gray-500 text-sm font-bold mb-2'>{items?.length} items posted by you for resale.</h1>
+            <h1 className='text-4xl font-bold  text-black md:text-white mb-10'>ITEMS FOR SELL</h1>
+            <h1 className='text-white-500 text-sm font-bold mb-2'>Click the advertise button to display your item at Homepage.</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 

@@ -20,83 +20,73 @@ const DashboardLayout = () => {
     return (
         <div className=''>
             <Navbar></Navbar>
-            <div className="drawer drawer-mobile  mx-auto">
+            <div className="drawer drawer-mobile  ">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
                     <Outlet></Outlet>
                 </div>
 
-                <div className="drawer-side shadow-md  bg-primary text-white">
+                <div className="drawer-side shadow-md bg-white text-black">
+                    <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
 
-                    <label htmlFor="dashboard-drawer " className="drawer-overlay"></label>
 
-                    <div className='mt-6 mb-[-150px] flex flex-col items-center mx-auto '>
-                        {
-                            user?.uid ?
-                                <>
-                                    <div className="avatar mb-2 ">
-                                        <div className="w-24 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            {
-                                                user?.photoURL ?
-                                                    <>
-                                                        <img src={user?.photoURL} />
-                                                    </>
-                                                    :
-                                                    <>
+                    <ul className="menu p-4 w-96  mx-auto items-center uppercase text-black">
+                 
+                        <>
+                            <li>
+
+                                <div className='mt-6  flex flex-col items-center mx-auto '>
+                                    {
+                                        user?.uid ?
+                                            <>
+                                                <div className="avatar mb-2 ">
+                                                    <div className="w-24 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                        {
+                                                            user?.photoURL ?
+                                                                <>
+                                                                    <img src={user?.photoURL} />
+                                                                </>
+                                                                :
+                                                                <>
+                                                                    <img src={User} />
+                                                                </>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </>
+                                            :
+                                            <>
+                                                <div className="avatar mb-2 mx-auto ">
+                                                    <div className="w-24 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+
                                                         <img src={User} />
-                                                    </>
-                                            }
 
-                                        </div>
-                                    </div>
-                                </>
-                                :
-                                <>
-                                   
-                                   <div className="avatar mb-2 mx-auto ">
-                                        <div className="w-24 mx-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            
-                                                        <img src={User} />
-                                                    
-                                        </div>
-                                    </div>
-                                
-                                </>
-                        }
-                        <p className='mt-2'>{user?.displayName}</p>
-                        <p className='mb-2 '>{user?.email}</p>
-                        {
-                        user?.uid &&
+                                                    </div>
+                                                </div>
+                                            </>
+                                    }
+                                    <p className='mt-2'>{user?.displayName}</p>
+                                    <p className='mb-2 '>{user?.email}</p>
+                                    {
+                                        user?.uid &&
 
-                            <button onClick={logOut} className='btn btn-success  btn-wide mx-auto'>
-                                
-                                Logout</button>
-                            
-                    }
-
-                       
-                    </div>
-
-                    <ul className="menu p-4 w-72  mx-auto  items-start  uppercase text-white">
-                    
-                  
-                   
-                        {
-                            isBuyer &&
-                            <>
-                                <li className='mt-[-100px]'>
+                                        <button onClick={logOut} className='btn btn-primary normal-case  btn-wide mx-auto'>Logout</button>
+                                    }
+                                </div>
+                            </li>
+                        </>
+                        <li className=''>
                                     <div className='flex flex-row gap-2 items-center ' >
                                         <FaShoppingBag></FaShoppingBag>
-                                        <Link to='/dashboard/myOrders'>Orders</Link>
+                                        <Link to='/dashboard/myOrders'>My Orders</Link>
                                     </div>
-                                </li>  
-                            </>
-                        }
+                                </li>
+                               
 
+                    
                         {
                             isAdmin &&
                             <>
-                               
                                 <li>
                                     <div className=' flex flex-row gap-2 items-center ' >
                                         <FaShoppingBag></FaShoppingBag>
@@ -121,29 +111,13 @@ const DashboardLayout = () => {
                                         <Link to='/dashboard/myBuyers'>All Buyers</Link>
                                     </div>
                                 </li>
-                                <li>
-                                    <div className='flex flex-row gap-2 items-center ' >
-                                        <FaHackerNews></FaHackerNews>
-                                        <Link to='/dashboard/wishList'>Reported Items</Link>
-                                    </div>
-                                </li>
-
                                
-
-
                             </>
                         }
                         {
                             isSeller &&
                             <>
                                 
-                                
-                                <li className='mt-[-80px]'>
-                                    <div className='flex flex-row gap-2 items-center ' >
-                                        <FaShoppingBag></FaShoppingBag>
-                                        <Link to='/dashboard/myOrders'>Orders</Link>
-                                    </div>
-                                </li>
                                 <li>
                                     <div className='flex flex-row gap-2 items-center ' >
                                         <FaPlus></FaPlus>
@@ -156,19 +130,11 @@ const DashboardLayout = () => {
                                         <Link to='/dashboard/postedItems'>My Posted Items</Link>
                                     </div>
                                 </li>
-
-
-                        
                             </>
                         }
-
-                  
                     </ul>
-                    
                 </div>
-
             </div>
-
         </div>
     );
 };

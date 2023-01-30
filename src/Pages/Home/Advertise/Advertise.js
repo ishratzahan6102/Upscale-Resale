@@ -6,7 +6,7 @@ const Advertise = () => {
     const { data: advertised = [], refetch, isLoading } = useQuery({
         queryKey: ['advertised'],
         queryFn: async () => {
-            const res = await fetch(`https://astor-server-ochre.vercel.app/advertised`)
+            const res = await fetch(`http://localhost:5000/advertised`)
             const data = await res.json()
             console.log(data)
             return data

@@ -1,10 +1,11 @@
 .product-hover{
     display: none;
+    transition: all .04s;
   
 }
 .card:hover .product-hover{
     display: block;
-    background-color: rgba(128, 128, 128, 0.212);
+    background-color: rgba(58, 57, 57, 0.37);
 }
 .card:hover .product-card{
     color: #5C7F67;

@@ -6,7 +6,7 @@ import { router } from './Router/Router';
 
 function App() {
   return (
-    <div className="">
+    <div className="normal-case ">
       <RouterProvider router={router}></RouterProvider>
       <Toaster />
     </div>
