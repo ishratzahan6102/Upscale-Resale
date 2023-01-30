@@ -1,4 +1,13 @@
-# Getting Started with Upscale Resale
+# Getting Started with Astor
+
+## Live Site
+https://phone-resell-center.web.app/
+
+##Login with this gmail to see admin activities
+Email : <iz@gmail.com>
+Password : <Abcd123$>
+
+
 # Made With :
 * React App
 * MongoDB
@@ -6,9 +15,6 @@
 * Daisy UI
 * Firebase Hosting
 
-## Live Site
-
-https://phone-resell-center.web.app/
 
 
 ## Learn More About The Site
@@ -16,16 +22,5 @@ https://phone-resell-center.web.app/
 * Under Development
 * Less Repeated Codes
 * Easy Hosting
-* Globally Watchable
 
 
-
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# b612-used-products-resale-clients-side-ishratzahan6102
